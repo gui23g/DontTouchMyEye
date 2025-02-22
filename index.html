@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0px;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <script>
+      const width = 800;
+      const height = 800;
+
+      var bodySelection = d3.select("body");
+
+      var svgSelection = bodySelection
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      var head = svgSelection
+        .append("circle")
+        .attr("cx", width / 2)
+        .attr("cy", height / 2)
+        .attr("r", 200)
+        .style("fill", "#11EE55");
+
+      var eye = svgSelection
+        .append("circle")
+        .attr("cx", width / 2)
+        .attr("cy", height / 2)
+        .attr("r", 100)
+        .style("fill", "white");
+
+      var pupil = svgSelection
+        .append("circle")
+        .attr("cx", width / 2)
+        .attr("cy", height / 2)
+        .attr("r", 50)
+        .style("fill", "#5cffa0")
+        .on("mousedown", function () {
+          d3.select(this).style("fill", "red");
+        })
+        .on("mouseup", function () {
+          d3.select(this).style("fill", "#5cffa0");
+        });
+    </script>
+  </body>
+</html>
